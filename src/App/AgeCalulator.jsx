@@ -17,7 +17,13 @@ const AgeCalulator = () => {
         setAge(age);
         setShow(true);
     };
-
+    const handleReset = () => {
+        setDay('');
+        setMonth('');
+        setYear('');
+        setAge('');
+        setShow(false);
+    }
     return (
         <div className='container-sm'>
             <h1 className='mb-3'>Age Calculator</h1>
@@ -54,10 +60,13 @@ const AgeCalulator = () => {
 
                 </div>
                 <div className="col-md-6">
-                    <h3>Your age is</h3>
                     {
                         show ? (
-                            <h4>{age}</h4>
+                            <div>
+                                <h3>Your age is :</h3>
+                                <h4>{age} Years.</h4>
+                                <button onClick={handleReset} className='btn btn-danger'>Reset</button>
+                            </div>
                         ) : null
                     }
                 </div>
